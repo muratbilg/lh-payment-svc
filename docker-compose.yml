@@ -1,0 +1,19 @@
+version: "3"
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ~/data:/data/db
+  com.pw.lh-payment-svc:
+    build: ./
+    ports:
+      - 8080:8080
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DATABASE=lh-payment-svc
+      - SPRING_PROFILES_ACTIVE=dev
+    depends_on:
+      - mongodb

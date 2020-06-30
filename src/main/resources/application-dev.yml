@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      host: ${MONGO_HOST}
+      database: ${MONGO_DATABASE}
+      port: ${MONGO_PORT}
